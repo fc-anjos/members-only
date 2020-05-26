@@ -11,7 +11,9 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= bootstrap_form_for(@post) do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_area :body %>
+    <%= f.submit "Create Post" %>
+  <% end %>
 <% end %>
