@@ -20,9 +20,12 @@
         <p>
           <%= post.body %>
         </p>
-        <p>
-          <%= post.user.username %>
-        </p>
+
+        <% if user_signed_in? %>
+          <p>
+            <%= post.user.username %>
+          </p>
+        <% end %>
 
       </tr>
     <% end %>
