@@ -47,8 +47,9 @@
       </ul>
     </nav>
 
-    <p class="alert"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |type, msg| %>
+      <p class="notice alert-primary p-2 pl-4" ><%= msg %></p>
+    <% end %>
 
     <div class="container">
       <%= yield %>
