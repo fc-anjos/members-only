@@ -12,33 +12,33 @@
   <body>
 
     <nav class='navbar navbar-expand-lg navbar-light bg-light'>
-      <a class="navbar-brand" href="#">Members Only</a>      
+      <a class="navbar-brand" href="#">Members Only</a>
       <ul class="nav navbar-nav ml-auto flex-row">
         <li class='nav-item'>
-          <% if user_signed_in? %> 
-            <button class="btn btn-outline-primary">
-              <%= link_to('Log out', destroy_user_session_path, method: :delete)  %>
+          <% if user_signed_in? %>
+            <button class="btn btn-primary mr-1">
+              <%= link_to('Log out', destroy_user_session_path, method: :delete, class: "text-white text-decoration-none")  %>
             </button>
           <% end %>
         </li>
         <li class='nav-item'>
           <% if !user_signed_in? && controller_name != 'sessions' %>
-            <button class="btn btn-outline-primary">
-              <%= link_to('Log In', new_user_session_path)  %>
+            <button class="btn btn-primary mr-1">
+              <%= link_to('Log In', new_user_session_path, class: "text-white text-decoration-none")  %>
             </button>
           <% end %>
         </li>
         <li class='nav-item'>
           <% if !user_signed_in? && controller_name != 'registrations' %>
-            <button class="btn btn-outline-primary">
-              <%= link_to('Sign Up', new_user_registration_path)  %>
+            <button class="btn btn-primary ml-1">
+              <%= link_to('Sign Up', new_user_registration_path, class: "text-white text-decoration-none")  %>
             </button>
           <% end %>
         </li>
       </ul>
     </nav>
 
-    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <div class="container">
