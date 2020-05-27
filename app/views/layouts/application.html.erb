@@ -9,19 +9,29 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <nav>
 
-      <button class="float-right bg-urgent">
+    <% if user_signed_in? %> 
+      <button class="float-right btn btn-outline-primary">
         <%= link_to('Log out', destroy_user_session_path, method: :delete)  %>
       </button>
+    <% end %>
 
-      <button class="float-right bg-urgent">
-        <%= link_to('Log in', new_user_session_path)  %>
+    <% if !user_signed_in? && controller_name != 'sessions' %>
+      <button class="float-right btn btn-outline-primary">
+        <%= link_to('Log In', new_user_session_path)  %>
       </button>
+    <% end %>
+
+    <% if !user_signed_in? && controller_name != 'registrations' %>
+      <button class="float-right btn btn-outline-primary">
+        <%= link_to('Sign Up', new_user_registration_path)  %>
+      </button>
+    <% end %>
 
     </nav>
     <%= yield %>
