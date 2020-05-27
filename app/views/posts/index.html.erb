@@ -1,35 +1,30 @@
-<h1>Posts</h1>
+<div class="d-flex flex-rows mt-4 mb-2">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1 class="mr-auto">Posts</h1>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
+  <div class="align-self-center btn btn-primary" >
+    <i class="fa fa-plus mr-2"></i>
+    <%= link_to 'New Post', new_post_path, class: "text-white" %>
+  </div>
+</div>
 
-        <h2>
-          <%= post.title %>
-        </h2>
+<% @posts.each do |post| %>
+  <tr>
 
-        <p>
-          <%= post.body %>
-        </p>
+    <h4 class="mb-1 mt-3">
+      <%= post.title %>
+    </h4>
 
-        <% if user_signed_in? %>
-          <p>
-            <%= post.user.username %>
-          </p>
-        <% end %>
+    <p class="m-0">
+      <%= post.body %>
+    </p>
 
-      </tr>
+    <% if user_signed_in? %>
+      <p class="mb-3 text-muted">
+        <small>
+          <i class="fa fa-user"></i>
+          <%= post.user.username %></small>
+      </p>
     <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+  <% end %>
