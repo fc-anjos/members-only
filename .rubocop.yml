@@ -3,6 +3,10 @@ AllCops:
     - "README.md"
     - "Guardfile"
     - "Rakefile"
+    # - "bin/bundle"
+    # - "node_modules/**/*"
+    # - "config/**/*"
+
 
   DisplayCopNames: true
 

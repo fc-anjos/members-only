@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create]
@@ -62,7 +60,7 @@ class PostsController < ApplicationController
     end
   end
 
-   private
+  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
@@ -73,4 +71,4 @@ class PostsController < ApplicationController
   def post_params
     params.fetch(:post, {}).permit(:title, :body)
   end
- end
+end
