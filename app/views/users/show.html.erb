@@ -1,0 +1,27 @@
+<h1>Profile</h1>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+
+      <h2>
+        <%= @user.username %>
+      </h2>
+
+      <p>
+        <%= @user.email %>
+      </p>
+
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-sm"%>
+</div>
+<%= link_to 'Back', root_path %>

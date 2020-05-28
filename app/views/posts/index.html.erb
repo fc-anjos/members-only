@@ -1,0 +1,30 @@
+<div class="d-flex flex-rows mb-2">
+
+  <h1 class="mr-auto">Posts</h1>
+
+  <div class="align-self-center btn btn-primary" >
+    <i class="fa fa-plus mr-2"></i>
+    <%= link_to 'New Post', new_post_path, class: "text-white" %>
+  </div>
+</div>
+
+<% @posts.each do |post| %>
+  <tr>
+
+    <h4 class="mb-1 mt-3">
+      <%= post.title %>
+    </h4>
+
+    <p class="m-0">
+      <%= post.body %>
+    </p>
+
+    <% if user_signed_in? %>
+      <p class="mb-3 text-muted">
+        <small>
+          <i class="fa fa-user"></i>
+          <%= post.user.username %></small>
+      </p>
+    <% end %>
+
+  <% end %>
